@@ -25,7 +25,8 @@ qrcode@^1.5.4 \
 resend@^4.0.1-alpha.0 \
 speakeasy@^2.0.0 \
 zod@^3.23.8 \
-uuid@^11.0.4
+uuid@^11.0.4 \
+date-fns@^4.1.0
 ```
 
 ### Install Dev Dependencies
