@@ -108,7 +108,7 @@ export default function Login() {
                       Password
                     </FormLabel>
                     <FormControl>
-                      <Input placeholder="••••••••••••" {...field} />
+                      <Input type='password' placeholder="••••••••••••" {...field} />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -118,7 +118,7 @@ export default function Login() {
             <div className="mb-4 flex w-full items-center justify-end">
               <Link
                 className="text-sm dark:text-white"
-                href="/reset-password?email="
+                href={`/forgot-password?email=${form.getValues().email}`}
               >
                 Forgot your password?
               </Link>
