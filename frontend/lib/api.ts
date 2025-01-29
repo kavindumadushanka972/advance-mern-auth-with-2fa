@@ -19,11 +19,22 @@ type ForgotPasswordType = {
 type ResetPasswordType = {
   password: string;
   verificationCode: string;
-}
+};
 
 type VerifyEmailType = {
   code: string;
-}
+};
+
+export type MfaType = {
+  message: string;
+  secretKey: string;
+  qrImageUrl: string;
+};
+
+type VerifyMFAType = {
+  code: string;
+  secretKey: string;
+};
 
 export const loginMutationFn = async (data: LoginType) =>
   await API.post('/auth/login', data);
@@ -39,3 +50,13 @@ export const forgotPasswordMutationFn = async (data: ForgotPasswordType) =>
 
 export const resetPasswordMutationFn = async (data: ResetPasswordType) =>
   await API.post('/auth/password/reset', data);
+
+export const mfaSetupQueryFn = async () => {
+  const response = await API.get<MfaType>('/mfa/setup');
+  return response.data;
+};
+
+export const verifyMFAMutationFn = async (data: VerifyMFAType) =>
+  await API.post('/mfa/verify', data);
+
+export const getUserSessionQueryFn = async () => await API.get('/session/');
